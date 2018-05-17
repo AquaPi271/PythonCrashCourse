@@ -63,15 +63,63 @@
 #      else:
 #           <body>
 #
+# Example of new syntax in if statement:   if "0" in next or "1" in next:
+#
 # Lists:
 #   -- [1,2,3,4]  
 #      ['brown', 'blond', 'red']
 #   -- range function, range(0,6) -> [0,1,2,3,4,5,6]
 #   -- append(<element>), adds element to end of the list
+#   -- Example:  animals = ['bear', 'python', 'peacock', 'kangaroo', 'whale', 'playtpus']
+#                animals[0] refers to 'bear'
 #
 #
 # For loop:
 #   -- for <variable> in <list>:
 #          <body>
 #
+#   -- while <boolean_expression>:
+#          <body>
+#
+#
+# 
+# Symbols in the language:
+# and      -- logical Boolean function
+# del      -- remove variable from scope and contents of variable
+# from     -- used to indicate which package an import will come from
+# not      -- logical Boolean function
+# while    -- loop controlled by a Boolean expression
+# as       -- can be used as an alias
+#             Example:   f = open(file)
+#                        f.read()
+#                        f.close()
+#             Equivalent:    with open(file) as f:
+#                                f.read()
+#             Example:   import SomeBigModuleName as sbmn
+#                        sbmn.method()
+# elif      -- confiditional if following after the original if
+# global    -- modifier to variable to show that a global variable is being referenced
+# or        -- logical Boolean function
+# with      -- a way of getting resource, doing something with it, and releasing it in a convenient form (see 'as' keyword)
+# assert    -- similar to a assert function in C, can be enabled / disabled for checking debug conditions
+# else      -- last leg of if statement
+# if        -- has a Boolean expression if evaluate as True will execute the body of statements associated with it
+# pass      -- is a NOP that can be used as a code stub.  Effectively does nothing.
+# yield     -- used to return a generator (fairly advanced subject which will need examples, but is powerful)
+# break     -- just as in C, exits closest enclosing while or foor loop
+# except    -- exception handler for specific type of exception in try: except: blocks
+# import    -- gets a specific module coupled with from keyword
+# print     -- send output as strings to a stream
+# class     -- declares a new class from which objects can be made
+# exec      -- executes a dynamically created program from a string or code object
+# in
+# raise
+# continue
+# finally
+# is
+# return
+# def
+# for
+# lambda
+# try
 #  
