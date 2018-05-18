@@ -125,3 +125,78 @@
 # lambda    -- shortcut for providing small anonymous functions
 # try       -- code to execute that may generate an exception to be handled by a matching exception handler
 #  
+# Operators:
+#
+#     +
+#     -
+#     *
+#     **   -- exponentation
+#     /
+#     //   -- floor division
+#     %
+#     <
+#     >
+#     <=
+#     >=
+#     ==
+#     !=
+#     <>
+#     ()
+#     []
+#     {}
+#     @
+#     ,
+#     :
+#     .
+#     =
+#     ;
+#     +=
+#     -=
+#     *=
+#     /=
+#     //=
+#     %=
+#     **=
+#
+# List operations:
+#
+# len() -- length of list
+# split(<string>) -- for string, create a list of elements separated by ' ' (or any character you want)
+# append(<item>)  -- add item to end of list
+# pop() -- remove last item in list and return it
+# <char>.join(<list>) -- creates a string by inserting <char> between elements 
+#                     -- alternatively, join('<char>', <list>) does the same thing
+#
+# Dict operations:
+#
+# -- is just a hash
+# -- stuff = {'name': 'Zed', 'age': 36, 'height': 6*12+2}
+#    stuff['name'] => 'Zed'
+#    stuff[1] = 3    # will make stuff look like:  {'name': 'Zed', 'age':36, 'height':74, 1:3}
+# -- use del to remove a hash element
+# -- Example:
+# --     states = { 'Oregon': 'OR', 'Florida': 'FL', 'California': 'CA', 'New York': 'NY', 'Michigan': 'MI' }
+# --     for state, abbrev in states.items():
+# --         print "%s is abbreviated %s" % (state, abbrev)
+# -- get(<hash_index>,<value_if_not_found>)
+#
+# Classes examples:
+#    class Song(object):
+#
+#        def __init__(self, lyrics):
+#            self.lyrics = lyrics
+#
+#        def sing_me_a_song(self):
+#            for line in self.lyrics:
+#                print line
+#
+#   happy_bday = Song(["Happy birthday to you",
+#                      "I don't want to get sued",
+#                      "So I'll stop right there"])
+#
+#   bulls_on_parade = Song(["They rally around the family",
+#                           "With pockets full of shells"])
+#
+#   happy_bday.sing_me_a_song()
+#
+#   bulls_on_parade.sing_me_a_song()
