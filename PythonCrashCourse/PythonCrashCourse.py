@@ -112,14 +112,16 @@
 # print     -- send output as strings to a stream
 # class     -- declares a new class from which objects can be made
 # exec      -- executes a dynamically created program from a string or code object
-# in
-# raise
-# continue
-# finally
-# is
-# return
-# def
-# for
-# lambda
-# try
+# in        -- iterates over a list of elements pointed to by in and returns matching arguments
+#              Example:    webframeworks = [['flask','django','pylons','pyramid','brubeck']
+#              'flask' in python_webframeworks  # Returns true
+# raise     -- causes an exception to occur
+# continue  -- just as in C, goes to the next iterator of the closest enclosing while or for loop
+# finally   -- code that's guaranteed to run even if an exception occurs
+# is        -- sees if one variable is at the same memory address as another (sees if one object is alias of another)
+# return    -- used to return values from a function;  multiple values can be returned via a comma separated list
+# def       -- use to start the defintion of a function
+# for       -- for loops
+# lambda    -- shortcut for providing small anonymous functions
+# try       -- code to execute that may generate an exception to be handled by a matching exception handler
 #  
