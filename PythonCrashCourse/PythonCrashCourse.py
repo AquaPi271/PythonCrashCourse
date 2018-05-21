@@ -84,12 +84,8 @@
 #
 # 
 # Symbols in the language:
-# and      -- logical Boolean function
-# del      -- remove variable from scope and contents of variable
-# from     -- used to indicate which package an import will come from
-# not      -- logical Boolean function
-# while    -- loop controlled by a Boolean expression
-# as       -- can be used as an alias
+# and       -- logical Boolean function
+# as        -- can be used as an alias
 #             Example:   f = open(file)
 #                        f.read()
 #                        f.close()
@@ -97,33 +93,37 @@
 #                                f.read()
 #             Example:   import SomeBigModuleName as sbmn
 #                        sbmn.method()
-# elif      -- confiditional if following after the original if
-# global    -- modifier to variable to show that a global variable is being referenced
-# or        -- logical Boolean function
-# with      -- a way of getting resource, doing something with it, and releasing it in a convenient form (see 'as' keyword)
 # assert    -- similar to a assert function in C, can be enabled / disabled for checking debug conditions
-# else      -- last leg of if statement
-# if        -- has a Boolean expression if evaluate as True will execute the body of statements associated with it
-# pass      -- is a NOP that can be used as a code stub.  Effectively does nothing.
-# yield     -- used to return a generator (fairly advanced subject which will need examples, but is powerful)
 # break     -- just as in C, exits closest enclosing while or foor loop
-# except    -- exception handler for specific type of exception in try: except: blocks
-# import    -- gets a specific module coupled with from keyword
-# print     -- send output as strings to a stream
 # class     -- declares a new class from which objects can be made
+# continue  -- just as in C, goes to the next iterator of the closest enclosing while or for loop
+# def       -- use to start the defintion of a function
+# del       -- remove variable from scope and contents of a dictionary
+# elif      -- conditional if following after the original if
+# else      -- last leg of if statement
+# except    -- exception handler for specific type of exception in try: except: blocks
 # exec      -- executes a dynamically created program from a string or code object
+# finally   -- code that's guaranteed to run even if an exception occurs
+# for       -- for loops
+# from      -- used to indicate which package an import will come from; gets specific part of module
+# global    -- modifier to variable to show that a global variable is being referenced
+# if        -- has a Boolean expression if evaluate as True will execute the body of statements associated with it
+# import    -- gets a specific module coupled with from keyword
 # in        -- iterates over a list of elements pointed to by in and returns matching arguments
 #              Example:    webframeworks = [['flask','django','pylons','pyramid','brubeck']
 #              'flask' in python_webframeworks  # Returns true
-# raise     -- causes an exception to occur
-# continue  -- just as in C, goes to the next iterator of the closest enclosing while or for loop
-# finally   -- code that's guaranteed to run even if an exception occurs
 # is        -- sees if one variable is at the same memory address as another (sees if one object is alias of another)
-# return    -- used to return values from a function;  multiple values can be returned via a comma separated list
-# def       -- use to start the defintion of a function
-# for       -- for loops
 # lambda    -- shortcut for providing small anonymous functions
+# not       -- logical Boolean function
+# or        -- logical Boolean function
+# pass      -- is a NOP that can be used as a code stub.  Effectively does nothing.
+# print     -- send output as strings to a stream
+# raise     -- causes an exception to occur
+# return    -- used to return values from a function;  multiple values can be returned via a comma separated list
 # try       -- code to execute that may generate an exception to be handled by a matching exception handler
+# while     -- loop controlled by a Boolean expression
+# with      -- a way of getting resource, doing something with it, and releasing it in a convenient form (see 'as' keyword)
+# yield     -- used to return a generator (fairly advanced subject which will need examples, but is powerful)
 #  
 # Operators:
 #
@@ -140,7 +140,6 @@
 #     >=
 #     ==
 #     !=
-#     <>
 #     ()
 #     []
 #     {}
@@ -158,6 +157,18 @@
 #     %=
 #     **=
 #
+# Data types:
+#
+# True
+# False
+# None
+# bytes   -- x = b"hello"
+# strings
+# numbers
+# floats
+# lists
+# dicts
+
 # List operations:
 #
 # len() -- length of list
@@ -188,7 +199,7 @@
 #
 #        def sing_me_a_song(self):
 #            for line in self.lyrics:
-#                print line
+#                print(line)
 #
 #   happy_bday = Song(["Happy birthday to you",
 #                      "I don't want to get sued",
@@ -200,3 +211,148 @@
 #   happy_bday.sing_me_a_song()
 #
 #   bulls_on_parade.sing_me_a_song()
+#
+#
+#   import random
+#   from urllib import urlopen
+#   import sys
+#
+#   WORD_URL = "http://learncodethehardway.org/words.txt"
+#   WORDS = []
+#
+#   PHRASES = {
+#       "class %%%(%%%):":
+#         "Make a class named %%% that is-a %%%.",
+#       "class %%%(object):\n\tdef __init__(self, ***)":
+#         "class %%% has-a __init__ that takes self and *** parameters.",
+#       "class %%%(object):\n\tdef ***(self, @@@)":
+#         "class %%% has-a function named *** that takes self and @@@ parameters.",
+#       "*** = %%%()":
+#         "Set *** to an instance of class %%%.",
+#       "***.***(@@@)":
+#         "From *** get the *** function, and call it with parameters self, @@@.",
+#       "***.*** = '***'":
+#         "From *** get the *** attribute and set it to '***'."
+#   }
+#
+#   # do they want to drill phrases first
+#   PHRASE_FIRST = False
+#   if len(sys.argv) == 2 and sys.argv[1] == "english":
+#       PHRASE_FIRST = True
+#
+#   # load up the words from the website
+#   for word in urlopen(WORD_URL).readlines():
+#       WORDS.append(word.strip())
+#
+#
+#   def convert(snippet, phrase):
+#       class_names = [w.capitalize() for w in
+#                      random.sample(WORDS, snippet.count("%%%"))]
+#       other_names = random.sample(WORDS, snippet.count("***"))
+#       results = []
+#       param_names = []
+#
+#       for i in range(0, snippet.count("@@@")):
+#           param_count = random.randint(1,3)
+#           param_names.append(', '.join(random.sample(WORDS, param_count)))
+#
+#       for sentence in snippet, phrase:
+#           result = sentence[:]
+#
+#           # fake class names
+#           for word in class_names:
+#               result = result.replace("%%%", word, 1)
+#
+#           # fake other names
+#           for word in other_names:
+#               result = result.replace("***", word, 1)
+#
+#           # fake parameter lists
+#           for word in param_names:
+#               result = result.replace("@@@", word, 1)
+#
+#           results.append(result)
+#
+#       return results
+#
+#
+#   # keep going until they hit CTRL-D
+#   try:
+#       while True:
+#           snippets = PHRASES.keys()
+#           random.shuffle(snippets)
+#
+#           for snippet in snippets:
+#               phrase = PHRASES[snippet]
+#               question, answer = convert(snippet, phrase)
+#               if PHRASE_FIRST:
+#                   question, answer = answer, question
+#
+#               print question
+#
+#               raw_input("> ")
+#               print "ANSWER:  %s\n\n" % answer
+#   except EOFError:
+#       print "\nBye"
+#
+# Inheritence:
+#
+# class Parent(object):
+#
+#     def implicit(self):
+#         print("PARENT implicit()")
+#
+# class Child(Parent):
+#     pass
+#
+# dad = Parent()
+# son = Child()
+#
+# dad.implicit()
+# son.implicit()
+#
+## This will print "PARENT implicit()" twice.
+#
+# 
+# class Parent(object):
+#
+#     def override(self):
+#         print("PARENT override()")
+#
+# class Child(Parent):
+#
+#     def override(self):
+#         print("CHILD override()")
+#
+# dad = Parent()
+# son = Child()
+#
+# dad.override()
+# son.override()
+#
+## This will print "PARENT override()" followed by "CHILD override()"
+#
+# How to explicitly call the super class.
+#
+# class Parent(object):
+#
+#     def altered(self):
+#         print("PARENT altered()")
+#
+# class Child(Parent):
+#
+#     def altered(self):
+#         print("CHILD, BEFORE PARENT altered()")
+#         super(Child, self).altered()
+#         print("CHILD, AFTER PARENT altered()")
+#
+# dad = Parent()
+# son = Child()
+#
+# dad.altered()
+# son.altered()
+#
+## PARENT altered()
+## CHILD, BEFORE PARENT altered()
+## PARENT altered()
+## CHILD, AFTER PARENT altered()
